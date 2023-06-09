@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('reserveringen', function (Blueprint $table){
             $table->id();
+            $table->unsignedBigInteger('owner');
             $table->date('reservering');
-            $table->float('inkomsten');
+            $table->integer('bedrag');
 
-            $table->foreign('inkomsten')->references('inkomsten')->on('inkomsten');
+            $table->foreign('owner')->references('id')->on('users');
         });
     }
 
@@ -25,6 +26,9 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::table('reserveringen', function (Blueprint $table) {
+            $table->dropForeign('reserveringen_owner_foreign');
+        });
         Schema::dropIfExists('reserveringen');
     }
 };

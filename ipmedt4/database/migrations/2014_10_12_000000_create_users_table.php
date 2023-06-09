@@ -21,10 +21,6 @@ return new class extends Migration
             $table->date('birthdate');
             $table->rememberToken();
             $table->timestamps();
-
-
-            $table->foreign('id')->references('owner')->on('inkomsten');
-
         });
     }
 
