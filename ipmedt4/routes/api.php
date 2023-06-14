@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ReserveringenController;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('/users', [UsersController::class, 'index']);
+Route::get('/reserveringen', [ReserveringenController::class, 'index']);
+
+Route::get('/{any}', function ($any){
+
+    return [1,2,3];
+
 });
