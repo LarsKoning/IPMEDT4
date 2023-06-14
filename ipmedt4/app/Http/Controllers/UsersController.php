@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Models\User;
+
 
 class UsersController extends Controller
 {
-    //
+    public function index() {
+        return User::all();
+    }
 }
