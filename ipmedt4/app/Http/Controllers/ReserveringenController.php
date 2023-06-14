@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Models\Reservering;
+use App\Models\Reservering;
 
 class ReserveringenController extends Controller
 {
